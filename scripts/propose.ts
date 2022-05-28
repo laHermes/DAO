@@ -36,17 +36,17 @@ export async function propose(
 		await moveBlocks(VOTING_DELAY + 1);
 	}
 
-	const proposalId = proposeReceipt.event[0].args.proposalId;
+	const proposalId = proposeReceipt.events[0].args.proposalId;
+	console.log('Proposal ID :', proposalId.toString());
 
 	// get json
 	let proposal = JSON.parse(fs.readFileSync(proposalFile, 'utf8'));
 	proposal[network.config.chainId!.toString()].push(proposalId.toString());
-
 	// write ot json
 	fs.writeFileSync(proposalFile, JSON.stringify(proposal));
 }
 
-propose([13], 'propose', 'Hello')
+propose([4441], 'store', 'Hello')
 	.then(() => process.exit(0))
 	.catch((err) => {
 		console.log(err);

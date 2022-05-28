@@ -4,4 +4,4 @@ export const VOTING_PERIOD = 5;
 export const VOTING_DELAY = 4;
 
 export const developmentChains = ['hardhat', 'localhost'];
-export const proposalFile = 'proposal.json';
+export const proposalFile = 'proposals.json';
